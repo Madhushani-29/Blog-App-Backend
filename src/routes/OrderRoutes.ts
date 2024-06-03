@@ -1,19 +1,19 @@
 import express from "express";
-import { jwtCheck, jwtParse } from "../middleware/auth";
+import { firebaseAuthCheck, jwtParse } from "../middleware/auth";
 import OrderController from "../controller/OrderController";
 
 const router = express.Router();
 
 router.get(
   "/",
-  jwtCheck,
+  firebaseAuthCheck,
   jwtParse,
   OrderController.getMyOrders
 );
 
 router.post(
   "/checkout/create-checkout-session",
-  jwtCheck,
+  firebaseAuthCheck,
   jwtParse,
   OrderController.createCheckoutSession
 );

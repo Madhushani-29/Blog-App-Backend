@@ -2,7 +2,7 @@ import express from "express";
 import MyRestaurantController from "../controller/MyRestaurantController";
 import multer from "multer";
 import { validateMyRestaurantRequest } from "../middleware/validation";
-import { jwtCheck, jwtParse } from "../middleware/auth";
+import { firebaseAuthCheck, jwtParse } from "../middleware/auth";
 
 const router = express.Router();
 
@@ -20,7 +20,7 @@ const upload = multer({
 
 router.get(
   "/",
-  jwtCheck,
+  firebaseAuthCheck,
   jwtParse,
   MyRestaurantController.getCurrentRestaurant
 );
@@ -31,7 +31,7 @@ router.post(
   if there are any validations, it will send a error message to FE, 
   then it will append images to a file object can use in controller function (req.file or req.files)' */
   upload.single("imageFile"),
-  jwtCheck,
+  firebaseAuthCheck,
   jwtParse,
   validateMyRestaurantRequest,
   MyRestaurantController.createRestaurant
@@ -40,7 +40,7 @@ router.post(
 router.put(
   "/",
   upload.single("imageFile"),
-  jwtCheck,
+  firebaseAuthCheck,
   jwtParse,
   validateMyRestaurantRequest,
   MyRestaurantController.updateRestaurant
@@ -48,14 +48,14 @@ router.put(
 
 router.get(
   "/orders",
-  jwtCheck,
+  firebaseAuthCheck,
   jwtParse,
   MyRestaurantController.getMyRestaurantOrders
 );
 
 router.patch(
   "/order/:orderID/status",
-  jwtCheck,
+  firebaseAuthCheck,
   jwtParse,
   MyRestaurantController.updateMyRestaurantStatus
 );

@@ -4,7 +4,7 @@
   "main": "./src/index.ts",
   "scripts": {
     "dev": "concurrently \"nodemon\" \"yarn run stripe\"",
-    "stripe" : "stripe listen --forward-to https://food-ordering-webapp-backend-9k2k.onrender.com/api/order/checkout/webhook",
+    "stripe": "stripe listen --forward-to https://food-ordering-webapp-backend-9k2k.onrender.com/api/order/checkout/webhook",
     "build": "yarn && tsc",
     "start": "node dist/index.js"
   },
@@ -20,6 +20,7 @@
     "express": "^4.19.2",
     "express-oauth2-jwt-bearer": "^1.6.0",
     "express-validator": "^7.0.1",
+    "firebase-admin": "^12.1.1",
     "jsonwebtoken": "^9.0.2",
     "mongodb": "^6.5.0",
     "mongoose": "^8.3.0",

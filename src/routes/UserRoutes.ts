@@ -1,17 +1,17 @@
 import express from "express";
 import UserController from "../controller/UserController";
-import { jwtCheck, jwtParse } from "../middleware/auth";
 import { validateMyUserRequest } from "../middleware/validation";
+import { firebaseAuthCheck, jwtParse } from "../middleware/auth";
 
 const router = express.Router();
 
-router.get("/", jwtCheck, jwtParse, UserController.getCurrentUser);
+router.get("/", firebaseAuthCheck, jwtParse, UserController.getCurrentUser);
 
-router.post("/", jwtCheck, UserController.createUser);
+router.post("/", firebaseAuthCheck, UserController.createUser);
 
 router.put(
   "/",
-  jwtCheck,
+  firebaseAuthCheck,
   jwtParse,
   validateMyUserRequest,
   UserController.updateCurrentUser

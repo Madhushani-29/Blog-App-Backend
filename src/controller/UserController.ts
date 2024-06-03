@@ -18,19 +18,16 @@ const getCurrentUser = async (req: Request, res: Response) => {
 
 const createUser = async (req: Request, res: Response) => {
   try {
-    const { auth0ID } = req.body;
-    const existingUser = await User.findOne({ auth0ID });
+    const  uid  = req.firebaseUID;
+    const existingUser = await User.findOne({ uid });
 
     if (existingUser) {
-      // Send a 200 OK response and terminate the function
       return res.status(200).json({ message: "User already exists" }).send();
     }
 
-    // Creating a new user object with the request body
-    const newUser = new User(req.body);
-    // Saving the new user to the database
+    const newUser = new User({...req.body, uid});
     await newUser.save();
-    // Send a 201 Created response with the newly created user object
+    
     res.status(201).json(newUser.toObject());
   } catch (error) {
     console.log(error);
