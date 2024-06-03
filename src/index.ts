@@ -3,7 +3,7 @@ import cors from "cors";
 import "dotenv/config";
 import connectDB from "./config/dbConnection";
 import UserRoutes from "./routes/UserRoutes";
-import MyRestaurantRoutes from "./routes/MyRestaurantRoutes";
+import MyRestaurantRoutes from "./routes/BlogRoutes";
 import { v2 as cloudinary } from "cloudinary";
 import RestaurantRoutes from "./routes/RestaurantRoutes";
 import OrderRoutes from "./routes/OrderRoutes";
@@ -32,9 +32,7 @@ app.get("/health", async (req: Request, res: Response) => {
   res.status(200).json({ message: "Health is ok" });
 });
 app.use("/api/my/user", UserRoutes);
-app.use("/api/my/restaurant", MyRestaurantRoutes);
-app.use("/api/restaurant", RestaurantRoutes);
-app.use("/api/order", OrderRoutes);
+app.use("/api/my/blogs", MyRestaurantRoutes);
 
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
