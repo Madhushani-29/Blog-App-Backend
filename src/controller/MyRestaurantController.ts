@@ -28,14 +28,7 @@ const createRestaurant = async (req: Request, res: Response) => {
         .send();
     }
 
-    //get image from the request
-    //req.file is the file object
     const imageUrl = await uploadImage(req.file as Express.Multer.File);
-
-    //embaded the userID and imageURL restautant object- can use as below when use .save() method
-    //const restaurant = new Restaurant(req.body);
-    //restaurant.imageUrl = imageUrl;
-    //restaurant.user = new mongoose.Types.ObjectId(req.userID);
 
     const restaurant = await Restaurant.create({
       ...req.body,

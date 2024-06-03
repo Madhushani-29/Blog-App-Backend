@@ -42,7 +42,7 @@ export const jwtParse = async (
   const { firebaseUID } = req;
 
   try {
-    const user = await User.findOne({ firebaseUID });
+    const user = await User.findOne({uid:firebaseUID});
 
     if (!user) {
       console.error("User not found for firebaseUID:", firebaseUID);

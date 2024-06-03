@@ -14,15 +14,10 @@ const handleValidationErrors = async (
   next();
 };
 
-// array contains a list of middleware functions used to validate the request body fields
 export const validateMyUserRequest = [
-  body("name").isString().notEmpty().withMessage("Name must be a string"),
-  body("addressLine1")
-    .isString()
-    .notEmpty()
-    .withMessage("AddressLine1 must be a string"),
-  body("city").isString().notEmpty().withMessage("City must be a string"),
-  body("country").isString().notEmpty().withMessage("Country must be a string"),
+  body("firstName").isString().notEmpty().withMessage("Name must be a string"),
+  body("lastName").isString().notEmpty().withMessage("Name must be a string"),
+  body("email").isString().notEmpty().withMessage("Name must be a string"),
   handleValidationErrors,
 ];
 
