@@ -39,6 +39,7 @@ const createUser = async (req: Request, res: Response) => {
 const updateCurrentUser = async (req: Request, res: Response) => {
   try {
     const user = await User.findById(req.userID);
+    console.log(req.body);
 
     if (!user) {
       return res.status(404).json({ message: "User not found" }).send();
@@ -52,14 +53,11 @@ const updateCurrentUser = async (req: Request, res: Response) => {
       user.imageUrl = imageUrl;
     }
 
-    const updatedUser = await User.findByIdAndUpdate(
-      user._id,
-      { ...req.body },
-      {
-        new: true,
-      }
-    );
+    const updatedUser = await User.findByIdAndUpdate(user._id, user, {
+      new: true,
+    });
 
+    console.log("Updated user", updatedUser);
     res.status(201).json(updatedUser);
   } catch (error) {
     console.log(error);
