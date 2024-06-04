@@ -23,7 +23,7 @@ app.use(cors());
 
 app.use(express.json());
 
-app.get("/health", async (req: Request, res: Response) => {
+app.get("/healthz", async (req: Request, res: Response) => {
   res.status(200).json({ message: "Health is ok" });
 });
 app.use("/api/my/user", UserRoutes);
