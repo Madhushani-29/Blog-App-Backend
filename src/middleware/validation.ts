@@ -27,6 +27,5 @@ export const validateMyBlogRequest = [
     .isString()
     .notEmpty()
     .withMessage("Restaurant Name is required"),
-  body("onCreated").isDate().notEmpty().withMessage("City is required"),
   handleValidationErrors,
 ];

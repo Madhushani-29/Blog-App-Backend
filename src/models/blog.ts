@@ -17,10 +17,6 @@ const blogSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  createdOn: {
-    type: Date,
-    required: true,
-  },
 });
 
 const Blog = mongoose.model("Blog", blogSchema);

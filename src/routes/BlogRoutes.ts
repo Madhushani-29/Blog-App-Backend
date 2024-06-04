@@ -23,4 +23,14 @@ router.post(
   BlogController.createBlog
 );
 
+router.get("/", firebaseAuthCheck, jwtParse, BlogController.getBlogs);
+
+router.put(
+  "/:id",
+  upload.single("imageFile"),
+  firebaseAuthCheck,
+  jwtParse,
+  BlogController.updateBlog
+);
+
 export default router;
