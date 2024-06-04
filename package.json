@@ -1,10 +1,9 @@
 {
-  "name": "restaurant-web-app-backend",
+  "name": "blog-app-backend",
   "version": "1.0.0",
   "main": "./src/index.ts",
   "scripts": {
-    "dev": "concurrently \"nodemon\" \"yarn run stripe\"",
-    "stripe": "stripe listen --forward-to https://food-ordering-webapp-backend-9k2k.onrender.com/api/order/checkout/webhook",
+    "dev": "nodemon",
     "build": "yarn && tsc",
     "start": "node dist/index.js"
   },

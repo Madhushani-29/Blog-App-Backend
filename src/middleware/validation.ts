@@ -15,9 +15,9 @@ const handleValidationErrors = async (
 };
 
 export const validateMyUserRequest = [
-  body("firstName").isString().notEmpty().withMessage("Name must be a string"),
-  body("lastName").isString().notEmpty().withMessage("Name must be a string"),
-  body("email").isString().notEmpty().withMessage("Name must be a string"),
+  body("firstName").isString().notEmpty().withMessage("first name must be a string"),
+  body("lastName").isString().notEmpty().withMessage("last name must be a string"),
+  body("email").isString().notEmpty().withMessage("email must be a string"),
   handleValidationErrors,
 ];
 

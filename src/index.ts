@@ -3,7 +3,8 @@ import cors from "cors";
 import "dotenv/config";
 import connectDB from "./config/dbConnection";
 import UserRoutes from "./routes/UserRoutes";
-import BlogRoutes from "./routes/BlogRoutes";
+import MyBlogRoutes from "./routes/MyBlogRoutes";
+import PublicBlogRoutes from "./routes/PublicBlogRoutes";
 import { v2 as cloudinary } from "cloudinary";
 
 const app = express();
@@ -26,7 +27,8 @@ app.get("/health", async (req: Request, res: Response) => {
   res.status(200).json({ message: "Health is ok" });
 });
 app.use("/api/my/user", UserRoutes);
-app.use("/api/my/blogs", BlogRoutes);
+app.use("/api/my/blogs", MyBlogRoutes);
+app.use("/api/public/blogs", PublicBlogRoutes);
 
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);

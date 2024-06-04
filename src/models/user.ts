@@ -19,11 +19,6 @@ const userSchema = new mongoose.Schema({
   },
   imageUrl: {
     type: String,
-    required: true,
-  },
-  createOn: {
-    type: Date,
-    required: true,
   },
 });
 

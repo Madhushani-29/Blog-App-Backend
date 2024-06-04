@@ -56,7 +56,6 @@ const updateCurrentUser = async (req: Request, res: Response) => {
       new: true,
     });
 
-    console.log("Updated user", updatedUser);
     res.status(201).json(updatedUser);
   } catch (error) {
     console.log(error);
