@@ -33,4 +33,6 @@ router.put(
   BlogController.updateBlog
 );
 
+router.delete("/:id", firebaseAuthCheck, jwtParse, BlogController.deleteBlog);
+
 export default router;
