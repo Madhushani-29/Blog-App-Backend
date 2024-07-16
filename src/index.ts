@@ -19,9 +19,9 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
-app.use(cors(/*{
+app.use(cors({
   origin: 'https://blog-app-frontend-eosin.vercel.app'
-}*/));
+}));
 
 app.use(express.json());
 
