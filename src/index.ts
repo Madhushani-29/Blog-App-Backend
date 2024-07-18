@@ -19,6 +19,12 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "https://blog-app-frontend-two-topaz.vercel.app");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
 app.use(cors());
 
 app.use(express.json());
