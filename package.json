@@ -1,11 +1,11 @@
 {
   "name": "blog-app-backend",
   "version": "1.0.0",
-  "main": "src/index.ts",
+  "main": "dist/index.js",
   "scripts": {
     "build": "yarn && tsc",
     "start": "node dist/index.js",
-    "dev": "nodemon"
+    "dev": "nodemon src/index.ts"
   },
   "repository": "https://github.com/Madhushani-29/Restaurant-WebApp-Backend.git",
   "author": "madhushani-29 <madhushani2904@gmail.com>",
