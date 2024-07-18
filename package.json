@@ -3,10 +3,17 @@
   "version": "1.0.0",
   "main": "src/index.ts",
   "scripts": {
-    "build": "tsc",
-    "start": "node dist/index.js",
-    "dev": "nodemon"
+    "start": "nodemon src/index.ts",
+    "build": "rimraf dist && tsc",
+    "ts.check": "tsc --project tsconfig.json",
+    "add-build": "git add dist",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "pre-commit": [
+    "ts.check",
+    "build",
+    "add-build"
+  ],
   "repository": "https://github.com/Madhushani-29/Restaurant-WebApp-Backend.git",
   "author": "madhushani-29 <madhushani2904@gmail.com>",
   "license": "MIT",
@@ -33,6 +40,8 @@
     "@types/node": "^20.12.5",
     "cpy-cli": "^5.0.0",
     "nodemon": "^3.1.0",
+    "pre-commit": "^1.2.2",
+    "rimraf": "^6.0.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.4.4"
   }

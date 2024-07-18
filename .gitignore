@@ -10,5 +10,7 @@
 # Ignore dependency directories
 /npm-debug.log
 
+.env
+
 #ignore dist files
-/dist
+#/dist
