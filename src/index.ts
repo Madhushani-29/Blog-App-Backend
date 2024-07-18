@@ -19,11 +19,13 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
-app.use(cors({
-  origin: 'https://blog-app-frontend-eosin.vercel.app'
-}));
+app.use(cors());
 
 app.use(express.json());
+
+app.get("/", async (req: Request, res: Response) => {
+  res.status(200).json({ message: "Success ok" });
+});
 
 app.get("/healthz", async (req: Request, res: Response) => {
   res.status(200).json({ message: "Health is ok" });
